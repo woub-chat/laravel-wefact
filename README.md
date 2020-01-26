@@ -4,7 +4,7 @@
 [![Build Status](https://img.shields.io/travis/Invato/laravel-wefact/master.svg?style=flat-square)](https://travis-ci.org/Invato/laravel-wefact)
 [![Total Downloads](https://img.shields.io/packagist/dt/Invato/laravel-wefact.svg?style=flat-square)](https://packagist.org/packages/Invato/laravel-wefact)
 
-Wefact is an easy-to-use billing and automation solution for hosting companies
+Wefact is an easy-to-use billing system. This repository on this repository nickurt/laravel-hostfact
 ### Table of contents
 - [Installation](#installation)
 - [Usage](#usage)
@@ -24,21 +24,6 @@ HOSTFACT_DEFAULT_URL=
 HOSTFACT_DEFAULT_KEY=
 ```
 ### Usage
-#### Authentication [debtors]
-It's possible to use a custom `wefact` authentication driver to login debtors in your application, by default the UserProfile will be cached for 60 minutes
-```php
-// config/auth.php
-'providers' => [
-    'wefact' => [
-        'driver' => 'wefact'
-    ],
-]
-
-// Auth::attempt
-if(Auth::attempt(['username' => $username, 'password' => $password]))
-{
-    dd(Auth::user(), Auth::id());
-}
 ```
 #### Multiple Panels [config]
 If you want to work with more Wefact panels, you can define more panels in the `config/wefact.php` file
@@ -129,28 +114,6 @@ Wefact::debtors()->sendEmail(array $params)
 Wefact::debtors()->show(array $params)
 Wefact::debtors()->updateLoginCredentials(array $params)
 ```
-#### Domains
-```php
-Wefact::domains()->add(array $params)
-Wefact::domains()->autoRenew(array $params)
-Wefact::domains()->changeNameServer(array $params)
-Wefact::domains()->check(array $params)
-Wefact::domains()->delete(array $params)
-Wefact::domains()->edit(array $params)
-Wefact::domains()->editDnsZone(array $params)
-Wefact::domains()->editWhois(array $params)
-Wefact::domains()->getDnsZone(array $params)
-Wefact::domains()->getToken(array $params)
-Wefact::domains()->list(array $params)
-Wefact::domains()->listDnsTemplates(array $params)
-Wefact::domains()->lock(array $params)
-Wefact::domains()->register(array $params)
-Wefact::domains()->show(array $params)
-Wefact::domains()->syncWhois(array $params)
-Wefact::domains()->terminate(array $params)
-Wefact::domains()->transfer(array $params)
-Wefact::domains()->unlock(array $params)
-```
 #### Groups
 ```php
 Wefact::groups()->add(array $params)
@@ -158,31 +121,6 @@ Wefact::groups()->delete(array $params)
 Wefact::groups()->edit(array $params)
 Wefact::groups()->list(array $params)
 Wefact::groups()->show(array $params)
-```
-#### Handles
-```php
-Wefact::handles()->add(array $params)
-Wefact::handles()->delete(array $params)
-Wefact::handles()->edit(array $params)
-Wefact::handles()->list(array $params)
-Wefact::handles()->listDomain(array $params)
-Wefact::handles()->show(array $params)
-```
-#### Hosting
-```php
-Wefact::hosting()->add(array $params)
-Wefact::hosting()->create(array $params)
-Wefact::hosting()->delete(array $params)
-Wefact::hosting()->edit(array $params)
-Wefact::hosting()->getDomainList(array $params)
-Wefact::hosting()->list(array $params)
-Wefact::hosting()->removeFromServer(array $params)
-Wefact::hosting()->sendAccountInfoByEmail(array $params)
-Wefact::hosting()->show(array $params)
-Wefact::hosting()->suspend(array $params)
-Wefact::hosting()->terminate(array $params)
-Wefact::hosting()->unsuspend(array $params)
-Wefact::hosting()->upDownGrade(array $params)
 ```
 #### Invoices
 ```php
@@ -206,15 +144,6 @@ Wefact::invoices()->sendSummationByEmail(array $params)
 Wefact::invoices()->show(array $params)
 Wefact::invoices()->unblock(array $params)
 ```
-#### Orders
-```php
-Wefact::orders()->add(array $params)
-Wefact::orders()->delete(array $params)
-Wefact::orders()->edit(array $params)
-Wefact::orders()->list(array $params)
-Wefact::orders()->process(array $params)
-Wefact::orders()->show(array $params)
-```
 #### PriceQuotes
 ```php
 Wefact::pricequotes()->accept(array $params)
@@ -234,58 +163,6 @@ Wefact::products()->delete(array $params)
 Wefact::products()->edit(array $params)
 Wefact::products()->list(array $params)
 Wefact::products()->show(array $params)
-```
-#### Services
-```php
-Wefact::services()->add(array $params)
-Wefact::services()->edit(array $params)
-Wefact::services()->list(array $params)
-Wefact::services()->show(array $params)
-Wefact::services()->terminate(array $params)
-```
-#### Ssl
-```php
-Wefact::ssl()->add(array $params)
-Wefact::ssl()->download(array $params)
-Wefact::ssl()->edit(array $params)
-Wefact::ssl()->getStatus(array $params)
-Wefact::ssl()->installed(array $params)
-Wefact::ssl()->list(array $params)
-Wefact::ssl()->reissue(array $params)
-Wefact::ssl()->renew(array $params)
-Wefact::ssl()->request(array $params)
-Wefact::ssl()->resendApproverMail(array $params)
-Wefact::ssl()->revoke(array $params)
-Wefact::ssl()->show(array $params)
-Wefact::ssl()->terminate(array $params)
-Wefact::ssl()->uninstalled(array $params)
-```
-#### Tickets
-```php
-Wefact::tickets()->add(array $params)
-Wefact::tickets()->addMessage(array $params)
-Wefact::tickets()->changeOwner(array $params)
-Wefact::tickets()->changeStatus(array $params)
-Wefact::tickets()->delete(array $params)
-Wefact::tickets()->edit(array $params)
-Wefact::tickets()->list(array $params)
-Wefact::tickets()->show(array $params)
-```
-#### Vps
-```php
-Wefact::vps()->add(array $params)
-Wefact::vps()->create(array $params)
-Wefact::vps()->downloadAccountData(array $params)
-Wefact::vps()->edit(array $params)
-Wefact::vps()->list(array $params)
-Wefact::vps()->pause(array $params)
-Wefact::vps()->restart(array $params)
-Wefact::vps()->sendAccountDataByEmail(array $params)
-Wefact::vps()->show(array $params)
-Wefact::vps()->start(array $params)
-Wefact::vps()->suspend(array $params)
-Wefact::vps()->terminate(array $params)
-Wefact::vps()->unsuspend(array $params)
 ```
 ### Tests
 ```sh
