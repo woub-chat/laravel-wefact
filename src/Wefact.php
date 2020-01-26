@@ -1,20 +1,20 @@
 <?php
 
-namespace nickurt\HostFact;
+namespace Invato\Wefact;
 
-class HostFact
+class Wefact
 {
     /** @var \Illuminate\Foundation\Application */
     protected $app;
 
-    /** @var \nickurt\HostFact\Client */
+    /** @var \Invato\Wefact\Client */
     protected $client;
 
     /** @var array */
     protected $panels = [];
 
     /**
-     * HostFact constructor.
+     * Wefact constructor.
      * @param $app
      */
     public function __construct($app)
@@ -34,7 +34,7 @@ class HostFact
 
     /**
      * @param null|string $name
-     * @return \nickurt\HostFact\Client
+     * @return \Invato\Wefact\Client
      */
     public function panel($name = null)
     {
@@ -48,12 +48,12 @@ class HostFact
      */
     public function getDefaultPanel()
     {
-        return $this->app['config']['hostfact.default'];
+        return $this->app['config']['wefact.default'];
     }
 
     /**
      * @param string $name
-     * @return \nickurt\HostFact\Client
+     * @return \Invato\Wefact\Client
      */
     protected function get($name)
     {
@@ -62,13 +62,13 @@ class HostFact
 
     /**
      * @param string $name
-     * @return \nickurt\HostFact\Client
+     * @return \Invato\Wefact\Client
      */
     protected function resolve($name)
     {
         $config = $this->getConfig($name);
 
-        $this->client = new \nickurt\HostFact\Client();
+        $this->client = new Client();
         $this->client->setOptions([
             'base_url' => $config['url'],
             'key' => $config['key']
@@ -83,6 +83,6 @@ class HostFact
      */
     protected function getConfig($name)
     {
-        return $this->app['config']["hostfact.panels.{$name}"];
+        return $this->app['config']["wefact.panels.{$name}"];
     }
 }

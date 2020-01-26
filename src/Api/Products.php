@@ -1,11 +1,11 @@
 <?php
 
-namespace nickurt\HostFact\Api;
+namespace Invato\Wefact\Api;
 
 class Products extends AbstractApi
 {
     /**
-     * @see https://www.hostfact.nl/developer/api/producten/add
+     * @see https://www.wefact.nl/developer/api/producten/add
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -16,7 +16,7 @@ class Products extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/producten/delete
+     * @see https://www.wefact.nl/developer/api/producten/delete
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -27,7 +27,7 @@ class Products extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/producten/edit
+     * @see https://www.wefact.nl/developer/api/producten/edit
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -38,7 +38,7 @@ class Products extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/producten/list
+     * @see https://www.wefact.nl/developer/api/producten/list
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -49,7 +49,7 @@ class Products extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/producten/show
+     * @see https://www.wefact.nl/developer/api/producten/show
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException

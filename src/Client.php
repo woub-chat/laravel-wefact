@@ -1,8 +1,8 @@
 <?php
 
-namespace nickurt\HostFact;
+namespace Invato\Wefact;
 
-use nickurt\HostFact\HttpClient\HttpClient;
+use Invato\Wefact\HttpClient\HttpClient;
 
 class Client
 {
@@ -12,21 +12,13 @@ class Client
         'creditinvoices' => 'CreditInvoices',
         'creditors' => 'Creditors',
         'debtors' => 'Debtors',
-        'domains' => 'Domains',
         'groups' => 'Groups',
-        'handles' => 'Handles',
-        'hosting' => 'Hosting',
         'invoices' => 'Invoices',
-        'orders' => 'Orders',
         'pricequotes' => 'PriceQuotes',
         'products' => 'Products',
-        'services' => 'Services',
-        'ssl' => 'Ssl',
-        'tickets' => 'Tickets',
-        'vps' => 'Vps',
     ];
 
-    /** @var \nickurt\HostFact\HttpClient */
+    /** @var \Invato\Wefact\HttpClient */
     protected $httpClient;
 
     /** @var array */
@@ -56,7 +48,7 @@ class Client
             throw new \InvalidArgumentException(sprintf('Undefined method called:"%s"', $name));
         }
 
-        $class = '\\nickurt\\HostFact\\Api\\' . $this->classes[$name];
+        $class = '\\Invato\\Wefact\\Api\\' . $this->classes[$name];
 
         return new $class($this);
     }

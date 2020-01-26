@@ -1,6 +1,6 @@
 <?php
 
-namespace nickurt\HostFact\Tests\Endpoints;
+namespace Invato\Wefact\Tests\Endpoints;
 
 class InvoicesTest extends BaseEndpointTest
 {

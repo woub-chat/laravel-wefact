@@ -1,9 +1,9 @@
 <?php
 
-namespace nickurt\HostFact;
+namespace Invato\Wefact;
 
 /**
- * @method static \nickurt\HostFact\Api\Debtors debtors()
+ * @method static \Invato\Wefact\Api\Debtors debtors()
  */
 class Facade extends \Illuminate\Support\Facades\Facade
 {
@@ -12,6 +12,6 @@ class Facade extends \Illuminate\Support\Facades\Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'HostFact';
+        return 'Wefact';
     }
 }

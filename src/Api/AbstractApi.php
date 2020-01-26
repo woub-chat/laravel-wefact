@@ -1,17 +1,17 @@
 <?php
 
-namespace nickurt\HostFact\Api;
+namespace Invato\Wefact\Api;
 
-use nickurt\HostFact\Client;
+use Invato\Wefact\Client;
 
 abstract class AbstractApi implements ApiInterface
 {
-    /** @var \nickurt\HostFact\Client */
+    /** @var \Invato\Wefact\Client */
     public $client;
 
     /**
      * AbstractApi constructor.
-     * @param \nickurt\HostFact\Client $client
+     * @param \Invato\Wefact\Client $client
      */
     public function __construct(Client $client)
     {

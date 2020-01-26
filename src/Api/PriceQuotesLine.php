@@ -1,11 +1,11 @@
 <?php
 
-namespace nickurt\HostFact\Api;
+namespace Invato\Wefact\Api;
 
 class PriceQuotesLine extends AbstractApi
 {
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/pricequoteline-add
+     * @see https://www.wefact.nl/developer/api/offertes/pricequoteline-add
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -16,7 +16,7 @@ class PriceQuotesLine extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/pricequoteline-delete
+     * @see https://www.wefact.nl/developer/api/offertes/pricequoteline-delete
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException

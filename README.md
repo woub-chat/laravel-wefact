@@ -1,10 +1,10 @@
-## Laravel HostFact
-[![Latest Stable Version](https://poser.pugx.org/nickurt/laravel-hostfact/v/stable?format=flat-square)](https://packagist.org/packages/nickurt/laravel-hostfact)
+## Laravel Wefact
+[![Latest Stable Version](https://poser.pugx.org/Invato/laravel-wefact/v/stable?format=flat-square)](https://packagist.org/packages/Invato/laravel-wefact)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/nickurt/laravel-hostfact/master.svg?style=flat-square)](https://travis-ci.org/nickurt/laravel-hostfact)
-[![Total Downloads](https://img.shields.io/packagist/dt/nickurt/laravel-hostfact.svg?style=flat-square)](https://packagist.org/packages/nickurt/laravel-hostfact)
+[![Build Status](https://img.shields.io/travis/Invato/laravel-wefact/master.svg?style=flat-square)](https://travis-ci.org/Invato/laravel-wefact)
+[![Total Downloads](https://img.shields.io/packagist/dt/Invato/laravel-wefact.svg?style=flat-square)](https://packagist.org/packages/Invato/laravel-wefact)
 
-HostFact is an easy-to-use billing and automation solution for hosting companies
+Wefact is an easy-to-use billing and automation solution for hosting companies
 ### Table of contents
 - [Installation](#installation)
 - [Usage](#usage)
@@ -12,25 +12,25 @@ HostFact is an easy-to-use billing and automation solution for hosting companies
 ### Installation
 Install this package with composer:
 ```
-composer require nickurt/laravel-hostfact
+composer require Invato/laravel-wefact
 ```
-Copy the config files for the HostFact-plugin
+Copy the config files for the Wefact-plugin
 ```
-php artisan vendor:publish --provider="nickurt\HostFact\ServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Invato\Wefact\ServiceProvider" --tag="config"
 ```
-Add the HostFact credentials to your `.env` file
+Add the Wefact credentials to your `.env` file
 ```
 HOSTFACT_DEFAULT_URL=
 HOSTFACT_DEFAULT_KEY=
 ```
 ### Usage
 #### Authentication [debtors]
-It's possible to use a custom `hostfact` authentication driver to login debtors in your application, by default the UserProfile will be cached for 60 minutes
+It's possible to use a custom `wefact` authentication driver to login debtors in your application, by default the UserProfile will be cached for 60 minutes
 ```php
 // config/auth.php
 'providers' => [
-    'hostfact' => [
-        'driver' => 'hostfact'
+    'wefact' => [
+        'driver' => 'wefact'
     ],
 ]
 
@@ -41,9 +41,9 @@ if(Auth::attempt(['username' => $username, 'password' => $password]))
 }
 ```
 #### Multiple Panels [config]
-If you want to work with more HostFact panels, you can define more panels in the `config/hostfact.php` file
+If you want to work with more Wefact panels, you can define more panels in the `config/wefact.php` file
 ```php
-// config/hostfact.php
+// config/wefact.php
 'panels' => [
 
     'default' => [
@@ -64,7 +64,7 @@ To use another panel than your default one, you can specify it with the panel-me
 // DebtorsController
 public function getIndex()
 {
-    $debtors = HostFact::panel('ppe')->debtors()->all([
+    $debtors = Wefact::panel('ppe')->debtors()->all([
         'Sort' => 'DebtorCode',
         'limit' => 20
     ]);
@@ -75,16 +75,16 @@ public function getIndex()
 #### Multiple Panels [dependency injection]
 ```php
 // Route
-Route::get('/hostfact/{hostFact}/debtors', ['as' => 'hostfact/debtors', 'uses' => 'DebtorsController@getIndex']);
+Route::get('/wefact/{hostFact}/debtors', ['as' => 'wefact/debtors', 'uses' => 'DebtorsController@getIndex']);
 
 Route::bind('hostFact', function ($value, $route) {
-    app('HostFact')->panel($value);
+    app('Wefact')->panel($value);
 
-    return app('HostFact');
+    return app('Wefact');
 });
 
 // DebtorsController
-public function getIndex(HostFact $hostFact)
+public function getIndex(Wefact $hostFact)
 {
     $debtors = $hostFact->debtors()->all([
         'Sort' => 'DebtorCode',
@@ -96,196 +96,196 @@ public function getIndex(HostFact $hostFact)
 ```
 #### Attachments
 ```php
-HostFact::attachments()->add(array $params)
-HostFact::attachments()->delete(array $params)
-HostFact::attachments()->download(array $params)
+Wefact::attachments()->add(array $params)
+Wefact::attachments()->delete(array $params)
+Wefact::attachments()->download(array $params)
 ```
 #### CreditInvoices
 ```php
-HostFact::creditinvoices()->add(array $params)
-HostFact::creditinvoices()->delete(array $params)
-HostFact::creditinvoices()->edit(array $params)
-HostFact::creditinvoices()->list(array $params)
-HostFact::creditinvoices()->markAsPaid(array $params)
-HostFact::creditinvoices()->partPayment(array $params)
-HostFact::creditinvoices()->show(array $params)
+Wefact::creditinvoices()->add(array $params)
+Wefact::creditinvoices()->delete(array $params)
+Wefact::creditinvoices()->edit(array $params)
+Wefact::creditinvoices()->list(array $params)
+Wefact::creditinvoices()->markAsPaid(array $params)
+Wefact::creditinvoices()->partPayment(array $params)
+Wefact::creditinvoices()->show(array $params)
 ```
 #### Creditors
 ```php
-HostFact::creditors()->add(array $params)
-HostFact::creditors()->delete(array $params)
-HostFact::creditors()->edit(array $params)
-HostFact::creditors()->list(array $params)
-HostFact::creditors()->show(array $params)
+Wefact::creditors()->add(array $params)
+Wefact::creditors()->delete(array $params)
+Wefact::creditors()->edit(array $params)
+Wefact::creditors()->list(array $params)
+Wefact::creditors()->show(array $params)
 ```
 #### Debtors
 ```php
-HostFact::debtors()->add(array $params)
-HostFact::debtors()->checkLogin(array $params)
-HostFact::debtors()->edit(array $params)
-HostFact::debtors()->generatePdf(array $params)
-HostFact::debtors()->list(array $params)
-HostFact::debtors()->sendEmail(array $params)
-HostFact::debtors()->show(array $params)
-HostFact::debtors()->updateLoginCredentials(array $params)
+Wefact::debtors()->add(array $params)
+Wefact::debtors()->checkLogin(array $params)
+Wefact::debtors()->edit(array $params)
+Wefact::debtors()->generatePdf(array $params)
+Wefact::debtors()->list(array $params)
+Wefact::debtors()->sendEmail(array $params)
+Wefact::debtors()->show(array $params)
+Wefact::debtors()->updateLoginCredentials(array $params)
 ```
 #### Domains
 ```php
-HostFact::domains()->add(array $params)
-HostFact::domains()->autoRenew(array $params)
-HostFact::domains()->changeNameServer(array $params)
-HostFact::domains()->check(array $params)
-HostFact::domains()->delete(array $params)
-HostFact::domains()->edit(array $params)
-HostFact::domains()->editDnsZone(array $params)
-HostFact::domains()->editWhois(array $params)
-HostFact::domains()->getDnsZone(array $params)
-HostFact::domains()->getToken(array $params)
-HostFact::domains()->list(array $params)
-HostFact::domains()->listDnsTemplates(array $params)
-HostFact::domains()->lock(array $params)
-HostFact::domains()->register(array $params)
-HostFact::domains()->show(array $params)
-HostFact::domains()->syncWhois(array $params)
-HostFact::domains()->terminate(array $params)
-HostFact::domains()->transfer(array $params)
-HostFact::domains()->unlock(array $params)
+Wefact::domains()->add(array $params)
+Wefact::domains()->autoRenew(array $params)
+Wefact::domains()->changeNameServer(array $params)
+Wefact::domains()->check(array $params)
+Wefact::domains()->delete(array $params)
+Wefact::domains()->edit(array $params)
+Wefact::domains()->editDnsZone(array $params)
+Wefact::domains()->editWhois(array $params)
+Wefact::domains()->getDnsZone(array $params)
+Wefact::domains()->getToken(array $params)
+Wefact::domains()->list(array $params)
+Wefact::domains()->listDnsTemplates(array $params)
+Wefact::domains()->lock(array $params)
+Wefact::domains()->register(array $params)
+Wefact::domains()->show(array $params)
+Wefact::domains()->syncWhois(array $params)
+Wefact::domains()->terminate(array $params)
+Wefact::domains()->transfer(array $params)
+Wefact::domains()->unlock(array $params)
 ```
 #### Groups
 ```php
-HostFact::groups()->add(array $params)
-HostFact::groups()->delete(array $params)
-HostFact::groups()->edit(array $params)
-HostFact::groups()->list(array $params)
-HostFact::groups()->show(array $params)
+Wefact::groups()->add(array $params)
+Wefact::groups()->delete(array $params)
+Wefact::groups()->edit(array $params)
+Wefact::groups()->list(array $params)
+Wefact::groups()->show(array $params)
 ```
 #### Handles
 ```php
-HostFact::handles()->add(array $params)
-HostFact::handles()->delete(array $params)
-HostFact::handles()->edit(array $params)
-HostFact::handles()->list(array $params)
-HostFact::handles()->listDomain(array $params)
-HostFact::handles()->show(array $params)
+Wefact::handles()->add(array $params)
+Wefact::handles()->delete(array $params)
+Wefact::handles()->edit(array $params)
+Wefact::handles()->list(array $params)
+Wefact::handles()->listDomain(array $params)
+Wefact::handles()->show(array $params)
 ```
 #### Hosting
 ```php
-HostFact::hosting()->add(array $params)
-HostFact::hosting()->create(array $params)
-HostFact::hosting()->delete(array $params)
-HostFact::hosting()->edit(array $params)
-HostFact::hosting()->getDomainList(array $params)
-HostFact::hosting()->list(array $params)
-HostFact::hosting()->removeFromServer(array $params)
-HostFact::hosting()->sendAccountInfoByEmail(array $params)
-HostFact::hosting()->show(array $params)
-HostFact::hosting()->suspend(array $params)
-HostFact::hosting()->terminate(array $params)
-HostFact::hosting()->unsuspend(array $params)
-HostFact::hosting()->upDownGrade(array $params)
+Wefact::hosting()->add(array $params)
+Wefact::hosting()->create(array $params)
+Wefact::hosting()->delete(array $params)
+Wefact::hosting()->edit(array $params)
+Wefact::hosting()->getDomainList(array $params)
+Wefact::hosting()->list(array $params)
+Wefact::hosting()->removeFromServer(array $params)
+Wefact::hosting()->sendAccountInfoByEmail(array $params)
+Wefact::hosting()->show(array $params)
+Wefact::hosting()->suspend(array $params)
+Wefact::hosting()->terminate(array $params)
+Wefact::hosting()->unsuspend(array $params)
+Wefact::hosting()->upDownGrade(array $params)
 ```
 #### Invoices
 ```php
-HostFact::invoices()->add(array $params)
-HostFact::invoices()->block(array $params)
-HostFact::invoices()->cancelSchedule(array $params)
-HostFact::invoices()->credit(array $params)
-HostFact::invoices()->delete(array $params)
-HostFact::invoices()->download(array $params)
-HostFact::invoices()->edit(array $params)
-HostFact::invoices()->list(array $params)
-HostFact::invoices()->markAsPaid(array $params)
-HostFact::invoices()->markAsUnpaid(array $params)
-HostFact::invoices()->partPayment(array $params)
-HostFact::invoices()->paymentProcessPause(array $params)
-HostFact::invoices()->paymentProcessReactivate(array $params)
-HostFact::invoices()->schedule(array $params)
-HostFact::invoices()->sendByEmail(array $params)
-HostFact::invoices()->sendReminderByEmail(array $params)
-HostFact::invoices()->sendSummationByEmail(array $params)
-HostFact::invoices()->show(array $params)
-HostFact::invoices()->unblock(array $params)
+Wefact::invoices()->add(array $params)
+Wefact::invoices()->block(array $params)
+Wefact::invoices()->cancelSchedule(array $params)
+Wefact::invoices()->credit(array $params)
+Wefact::invoices()->delete(array $params)
+Wefact::invoices()->download(array $params)
+Wefact::invoices()->edit(array $params)
+Wefact::invoices()->list(array $params)
+Wefact::invoices()->markAsPaid(array $params)
+Wefact::invoices()->markAsUnpaid(array $params)
+Wefact::invoices()->partPayment(array $params)
+Wefact::invoices()->paymentProcessPause(array $params)
+Wefact::invoices()->paymentProcessReactivate(array $params)
+Wefact::invoices()->schedule(array $params)
+Wefact::invoices()->sendByEmail(array $params)
+Wefact::invoices()->sendReminderByEmail(array $params)
+Wefact::invoices()->sendSummationByEmail(array $params)
+Wefact::invoices()->show(array $params)
+Wefact::invoices()->unblock(array $params)
 ```
 #### Orders
 ```php
-HostFact::orders()->add(array $params)
-HostFact::orders()->delete(array $params)
-HostFact::orders()->edit(array $params)
-HostFact::orders()->list(array $params)
-HostFact::orders()->process(array $params)
-HostFact::orders()->show(array $params)
+Wefact::orders()->add(array $params)
+Wefact::orders()->delete(array $params)
+Wefact::orders()->edit(array $params)
+Wefact::orders()->list(array $params)
+Wefact::orders()->process(array $params)
+Wefact::orders()->show(array $params)
 ```
 #### PriceQuotes
 ```php
-HostFact::pricequotes()->accept(array $params)
-HostFact::pricequotes()->add(array $params)
-HostFact::pricequotes()->decline(array $params)
-HostFact::pricequotes()->delete(array $params)
-HostFact::pricequotes()->download(array $params)
-HostFact::pricequotes()->edit(array $params)
-HostFact::pricequotes()->list(array $params)
-HostFact::pricequotes()->sendByEmail(array $params)
-HostFact::pricequotes()->show(array $params)
+Wefact::pricequotes()->accept(array $params)
+Wefact::pricequotes()->add(array $params)
+Wefact::pricequotes()->decline(array $params)
+Wefact::pricequotes()->delete(array $params)
+Wefact::pricequotes()->download(array $params)
+Wefact::pricequotes()->edit(array $params)
+Wefact::pricequotes()->list(array $params)
+Wefact::pricequotes()->sendByEmail(array $params)
+Wefact::pricequotes()->show(array $params)
 ```
 #### Products
 ```php
-HostFact::products()->add(array $params)
-HostFact::products()->delete(array $params)
-HostFact::products()->edit(array $params)
-HostFact::products()->list(array $params)
-HostFact::products()->show(array $params)
+Wefact::products()->add(array $params)
+Wefact::products()->delete(array $params)
+Wefact::products()->edit(array $params)
+Wefact::products()->list(array $params)
+Wefact::products()->show(array $params)
 ```
 #### Services
 ```php
-HostFact::services()->add(array $params)
-HostFact::services()->edit(array $params)
-HostFact::services()->list(array $params)
-HostFact::services()->show(array $params)
-HostFact::services()->terminate(array $params)
+Wefact::services()->add(array $params)
+Wefact::services()->edit(array $params)
+Wefact::services()->list(array $params)
+Wefact::services()->show(array $params)
+Wefact::services()->terminate(array $params)
 ```
 #### Ssl
 ```php
-HostFact::ssl()->add(array $params)
-HostFact::ssl()->download(array $params)
-HostFact::ssl()->edit(array $params)
-HostFact::ssl()->getStatus(array $params)
-HostFact::ssl()->installed(array $params)
-HostFact::ssl()->list(array $params)
-HostFact::ssl()->reissue(array $params)
-HostFact::ssl()->renew(array $params)
-HostFact::ssl()->request(array $params)
-HostFact::ssl()->resendApproverMail(array $params)
-HostFact::ssl()->revoke(array $params)
-HostFact::ssl()->show(array $params)
-HostFact::ssl()->terminate(array $params)
-HostFact::ssl()->uninstalled(array $params)
+Wefact::ssl()->add(array $params)
+Wefact::ssl()->download(array $params)
+Wefact::ssl()->edit(array $params)
+Wefact::ssl()->getStatus(array $params)
+Wefact::ssl()->installed(array $params)
+Wefact::ssl()->list(array $params)
+Wefact::ssl()->reissue(array $params)
+Wefact::ssl()->renew(array $params)
+Wefact::ssl()->request(array $params)
+Wefact::ssl()->resendApproverMail(array $params)
+Wefact::ssl()->revoke(array $params)
+Wefact::ssl()->show(array $params)
+Wefact::ssl()->terminate(array $params)
+Wefact::ssl()->uninstalled(array $params)
 ```
 #### Tickets
 ```php
-HostFact::tickets()->add(array $params)
-HostFact::tickets()->addMessage(array $params)
-HostFact::tickets()->changeOwner(array $params)
-HostFact::tickets()->changeStatus(array $params)
-HostFact::tickets()->delete(array $params)
-HostFact::tickets()->edit(array $params)
-HostFact::tickets()->list(array $params)
-HostFact::tickets()->show(array $params)
+Wefact::tickets()->add(array $params)
+Wefact::tickets()->addMessage(array $params)
+Wefact::tickets()->changeOwner(array $params)
+Wefact::tickets()->changeStatus(array $params)
+Wefact::tickets()->delete(array $params)
+Wefact::tickets()->edit(array $params)
+Wefact::tickets()->list(array $params)
+Wefact::tickets()->show(array $params)
 ```
 #### Vps
 ```php
-HostFact::vps()->add(array $params)
-HostFact::vps()->create(array $params)
-HostFact::vps()->downloadAccountData(array $params)
-HostFact::vps()->edit(array $params)
-HostFact::vps()->list(array $params)
-HostFact::vps()->pause(array $params)
-HostFact::vps()->restart(array $params)
-HostFact::vps()->sendAccountDataByEmail(array $params)
-HostFact::vps()->show(array $params)
-HostFact::vps()->start(array $params)
-HostFact::vps()->suspend(array $params)
-HostFact::vps()->terminate(array $params)
-HostFact::vps()->unsuspend(array $params)
+Wefact::vps()->add(array $params)
+Wefact::vps()->create(array $params)
+Wefact::vps()->downloadAccountData(array $params)
+Wefact::vps()->edit(array $params)
+Wefact::vps()->list(array $params)
+Wefact::vps()->pause(array $params)
+Wefact::vps()->restart(array $params)
+Wefact::vps()->sendAccountDataByEmail(array $params)
+Wefact::vps()->show(array $params)
+Wefact::vps()->start(array $params)
+Wefact::vps()->suspend(array $params)
+Wefact::vps()->terminate(array $params)
+Wefact::vps()->unsuspend(array $params)
 ```
 ### Tests
 ```sh

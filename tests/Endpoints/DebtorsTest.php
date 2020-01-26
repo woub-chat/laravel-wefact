@@ -1,6 +1,6 @@
 <?php
 
-namespace nickurt\HostFact\Tests\Endpoints;
+namespace Invato\Wefact\Tests\Endpoints;
 
 class DebtorsTest extends BaseEndpointTest
 {
@@ -148,7 +148,7 @@ class DebtorsTest extends BaseEndpointTest
     public function it_can_send_email_to_an_existing_debtor()
     {
         $this->mockApiClientResponse(
-            new \GuzzleHttp\Psr7\Response(200, [], '{"controller":"debtor","action":"sendemail","status":"success","date":"2019-05-20T12:00:00+02:00","debtors":["E-mail met onderwerp \'Welkom bij HostFact\' is succesvol verzonden naar info@company.com"]}')
+            new \GuzzleHttp\Psr7\Response(200, [], '{"controller":"debtor","action":"sendemail","status":"success","date":"2019-05-20T12:00:00+02:00","debtors":["E-mail met onderwerp \'Welkom bij Wefact\' is succesvol verzonden naar info@company.com"]}')
         );
 
         $debtor = $this->hostFact->debtors()->sendEmail([
@@ -159,7 +159,7 @@ class DebtorsTest extends BaseEndpointTest
             //'References' => array('invoice' => 1, 'domain' => 1),
         ]);
 
-        $this->assertSame(['controller' => 'debtor', 'action' => 'sendemail', 'status' => 'success', 'date' => '2019-05-20T12:00:00+02:00', 'debtors' => [0 => 'E-mail met onderwerp \'Welkom bij HostFact\' is succesvol verzonden naar info@company.com']], $debtor);
+        $this->assertSame(['controller' => 'debtor', 'action' => 'sendemail', 'status' => 'success', 'date' => '2019-05-20T12:00:00+02:00', 'debtors' => [0 => 'E-mail met onderwerp \'Welkom bij Wefact\' is succesvol verzonden naar info@company.com']], $debtor);
     }
 
     /** @test */

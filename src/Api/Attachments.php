@@ -1,6 +1,6 @@
 <?php
 
-namespace nickurt\HostFact\Api;
+namespace Invato\Wefact\Api;
 
 class Attachments extends AbstractApi
 {

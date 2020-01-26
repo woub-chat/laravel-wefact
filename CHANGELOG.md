@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `laravel-hostfact` will be documented in this file
+All notable changes to `laravel-wefact` will be documented in this file
 
 ## 1.4.0 - 2019-12-02
 

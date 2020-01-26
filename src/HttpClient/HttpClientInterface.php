@@ -1,6 +1,6 @@
 <?php
 
-namespace nickurt\HostFact\HttpClient;
+namespace Invato\Wefact\HttpClient;
 
 interface HttpClientInterface
 {

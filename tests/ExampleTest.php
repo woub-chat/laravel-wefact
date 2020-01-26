@@ -1,6 +1,6 @@
 <?php
 
-namespace nickurt\HostFact\Tests;
+namespace Invato\Wefact\Tests;
 
 use PHPUnit\Framework\TestCase;
 

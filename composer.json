@@ -1,7 +1,7 @@
 {
-    "name": "nickurt/laravel-hostfact",
-    "description": "HostFact for Laravel 5.8/6.0",
-    "keywords": ["hostfact", "laravel"],
+    "name": "lvdhoorn/laravel-wefact",
+    "description": "Wefact for Laravel 5.8/6.0",
+    "keywords": ["wefact", "laravel"],
     "license": "MIT",
     "require": {
         "php": "^7.2",
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "nickurt\\HostFact\\": "src/"
+            "Invato\\Wefact\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -22,7 +22,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "nickurt\\HostFact\\tests\\": "tests"
+            "Invato\\Wefact\\tests\\": "tests"
         }
     },
     "scripts": {
@@ -34,10 +34,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "nickurt\\HostFact\\ServiceProvider"
+                "Invato\\Wefact\\ServiceProvider"
             ],
             "aliases": {
-                "HostFact": "nickurt\\HostFact\\Facade"
+                "Wefact": "Invato\\Wefact\\Facade"
             }
         }
     }

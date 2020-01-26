@@ -1,11 +1,11 @@
 <?php
 
-namespace nickurt\HostFact\Api;
+namespace Invato\Wefact\Api;
 
 class Creditors extends AbstractApi
 {
     /**
-     * @see https://www.hostfact.nl/developer/api/crediteuren/add
+     * @see https://www.wefact.nl/developer/api/crediteuren/add
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -16,18 +16,18 @@ class Creditors extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/crediteuren/attachment-add
-     * @see https://www.hostfact.nl/developer/api/crediteuren/attachment-delete
-     * @see https://www.hostfact.nl/developer/api/crediteuren/attachment-download
+     * @see https://www.wefact.nl/developer/api/crediteuren/attachment-add
+     * @see https://www.wefact.nl/developer/api/crediteuren/attachment-delete
+     * @see https://www.wefact.nl/developer/api/crediteuren/attachment-download
      * @return Attachments
      */
     public function attachments()
     {
-        return new \nickurt\HostFact\Api\Attachments($this->client);
+        return new \Invato\Wefact\Api\Attachments($this->client);
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/crediteuren/delete
+     * @see https://www.wefact.nl/developer/api/crediteuren/delete
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -38,7 +38,7 @@ class Creditors extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/crediteuren/edit
+     * @see https://www.wefact.nl/developer/api/crediteuren/edit
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -49,7 +49,7 @@ class Creditors extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/crediteuren/list
+     * @see https://www.wefact.nl/developer/api/crediteuren/list
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -60,7 +60,7 @@ class Creditors extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/crediteuren/show
+     * @see https://www.wefact.nl/developer/api/crediteuren/show
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException

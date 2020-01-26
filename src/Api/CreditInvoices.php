@@ -1,11 +1,11 @@
 <?php
 
-namespace nickurt\HostFact\Api;
+namespace Invato\Wefact\Api;
 
 class CreditInvoices extends AbstractApi
 {
     /**
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/add
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/add
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -16,18 +16,18 @@ class CreditInvoices extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/attachment-add
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/attachment-delete
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/attachment-download
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/attachment-add
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/attachment-delete
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/attachment-download
      * @return Attachments
      */
     public function attachments()
     {
-        return new \nickurt\HostFact\Api\Attachments($this->client);
+        return new \Invato\Wefact\Api\Attachments($this->client);
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/delete
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/delete
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -38,7 +38,7 @@ class CreditInvoices extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/edit
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/edit
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -49,17 +49,17 @@ class CreditInvoices extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/creditinvoiceline-add
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/creditinvoiceline-delete
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/creditinvoiceline-add
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/creditinvoiceline-delete
      * @return CreditInvoicesLine
      */
     public function line()
     {
-        return new \nickurt\HostFact\Api\CreditInvoicesLine($this->client);
+        return new \Invato\Wefact\Api\CreditInvoicesLine($this->client);
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/list
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/list
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -70,7 +70,7 @@ class CreditInvoices extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/markaspaid
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/markaspaid
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -81,7 +81,7 @@ class CreditInvoices extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/partpayment
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/partpayment
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -92,7 +92,7 @@ class CreditInvoices extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/show
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/show
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException

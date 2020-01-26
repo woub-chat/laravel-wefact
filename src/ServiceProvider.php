@@ -1,6 +1,6 @@
 <?php
 
-namespace nickurt\HostFact;
+namespace Invato\Wefact;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -12,11 +12,11 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/hostfact.php' => config_path('hostfact.php')
+            __DIR__ . '/../config/wefact.php' => config_path('wefact.php')
         ], 'config');
 
-        \Auth::provider('hostfact', function ($app, array $config) {
-            return new \nickurt\HostFact\Providers\HostFactProvider();
+        \Auth::provider('wefact', function ($app, array $config) {
+            return new \Invato\Wefact\Providers\WefactProvider();
         });
     }
 
@@ -27,7 +27,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function provides()
     {
-        return ['nickurt\HostFact\HostFact', 'HostFact'];
+        return ['Invato\Wefact\Wefact', 'Wefact'];
     }
 
     /**
@@ -37,13 +37,13 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('nickurt\HostFact\HostFact', function ($app) {
-            $hostFact = new HostFact($app);
+        $this->app->singleton('Invato\Wefact\Wefact', function ($app) {
+            $hostFact = new Wefact($app);
             $hostFact->panel($hostFact->getDefaultPanel());
 
             return $hostFact;
         });
 
-        $this->app->alias('nickurt\HostFact\HostFact', 'HostFact');
+        $this->app->alias('Invato\Wefact\Wefact', 'Wefact');
     }
 }

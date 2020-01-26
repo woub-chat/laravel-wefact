@@ -1,11 +1,11 @@
 <?php
 
-namespace nickurt\HostFact\Api;
+namespace Invato\Wefact\Api;
 
 class CreditInvoicesLine extends AbstractApi
 {
     /**
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/creditinvoiceline-add
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/creditinvoiceline-add
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -16,7 +16,7 @@ class CreditInvoicesLine extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/inkoopfacturen/creditinvoiceline-delete
+     * @see https://www.wefact.nl/developer/api/inkoopfacturen/creditinvoiceline-delete
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException

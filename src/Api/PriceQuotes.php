@@ -1,11 +1,11 @@
 <?php
 
-namespace nickurt\HostFact\Api;
+namespace Invato\Wefact\Api;
 
 class PriceQuotes extends AbstractApi
 {
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/accept
+     * @see https://www.wefact.nl/developer/api/offertes/accept
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -16,7 +16,7 @@ class PriceQuotes extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/add
+     * @see https://www.wefact.nl/developer/api/offertes/add
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -27,18 +27,18 @@ class PriceQuotes extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/attachment-add
-     * @see https://www.hostfact.nl/developer/api/offertes/attachment-delete
-     * @see https://www.hostfact.nl/developer/api/offertes/attachment-download
+     * @see https://www.wefact.nl/developer/api/offertes/attachment-add
+     * @see https://www.wefact.nl/developer/api/offertes/attachment-delete
+     * @see https://www.wefact.nl/developer/api/offertes/attachment-download
      * @return Attachments
      */
     public function attachments()
     {
-        return new \nickurt\HostFact\Api\Attachments($this->client);
+        return new \Invato\Wefact\Api\Attachments($this->client);
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/decline
+     * @see https://www.wefact.nl/developer/api/offertes/decline
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -49,7 +49,7 @@ class PriceQuotes extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/delete
+     * @see https://www.wefact.nl/developer/api/offertes/delete
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -60,7 +60,7 @@ class PriceQuotes extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/download
+     * @see https://www.wefact.nl/developer/api/offertes/download
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -71,7 +71,7 @@ class PriceQuotes extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/edit
+     * @see https://www.wefact.nl/developer/api/offertes/edit
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -82,17 +82,17 @@ class PriceQuotes extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/pricequoteline-add
-     * @see https://www.hostfact.nl/developer/api/offertes/pricequoteline-delete
+     * @see https://www.wefact.nl/developer/api/offertes/pricequoteline-add
+     * @see https://www.wefact.nl/developer/api/offertes/pricequoteline-delete
      * @return PriceQuotesLine
      */
     public function line()
     {
-        return new \nickurt\HostFact\Api\PriceQuotesLine($this->client);
+        return new \Invato\Wefact\Api\PriceQuotesLine($this->client);
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/list
+     * @see https://www.wefact.nl/developer/api/offertes/list
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -103,7 +103,7 @@ class PriceQuotes extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/sendbyemail
+     * @see https://www.wefact.nl/developer/api/offertes/sendbyemail
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -114,7 +114,7 @@ class PriceQuotes extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/offertes/show
+     * @see https://www.wefact.nl/developer/api/offertes/show
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException

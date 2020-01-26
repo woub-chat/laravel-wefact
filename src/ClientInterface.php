@@ -1,6 +1,6 @@
 <?php
 
-namespace nickurt\HostFact;
+namespace Invato\Wefact;
 
 interface ClientInterface
 {

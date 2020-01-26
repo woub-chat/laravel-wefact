@@ -1,11 +1,11 @@
 <?php
 
-namespace nickurt\HostFact\Api;
+namespace Invato\Wefact\Api;
 
 class Groups extends AbstractApi
 {
     /**
-     * @see https://www.hostfact.nl/developer/api/groepen/add
+     * @see https://www.wefact.nl/developer/api/groepen/add
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -16,7 +16,7 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/groepen/delete
+     * @see https://www.wefact.nl/developer/api/groepen/delete
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -27,7 +27,7 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/groepen/edit
+     * @see https://www.wefact.nl/developer/api/groepen/edit
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -38,7 +38,7 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/groepen/list
+     * @see https://www.wefact.nl/developer/api/groepen/list
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -49,7 +49,7 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @see https://www.hostfact.nl/developer/api/groepen/show
+     * @see https://www.wefact.nl/developer/api/groepen/show
      * @param $params
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException

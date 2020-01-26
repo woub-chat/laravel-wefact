@@ -1,22 +1,22 @@
 <?php
 
-namespace nickurt\HostFact\Providers;
+namespace Invato\Wefact\Providers;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider;
 
-class HostFactProvider implements UserProvider
+class WefactProvider implements UserProvider
 {
     /**
      * @param array $credentials
-     * @return Authenticatable|\nickurt\HostFact\Authentication\User|null
+     * @return Authenticatable|\Invato\Wefact\Authentication\User|null
      */
     public function retrieveByCredentials(array $credentials)
     {
-        $checkLogin = app('HostFact')->debtors()->checkLogin($credentials);
+        $checkLogin = app('Wefact')->debtors()->checkLogin($credentials);
 
         if ($checkLogin['status'] != 'error') {
-            $user = new \nickurt\HostFact\Authentication\User();
+            $user = new \Invato\Wefact\Authentication\User();
             $user->forceFill($checkLogin['debtor']);
 
             return $user;
@@ -32,10 +32,10 @@ class HostFactProvider implements UserProvider
      */
     public function retrieveById($identifier)
     {
-        return cache()->remember('hostfact_debtor_id_' . $identifier, 60, function () use ($identifier) {
-            $response = app('HostFact')->debtors()->show(['Identifier' => $identifier]);
+        return cache()->remember('wefact_debtor_id_' . $identifier, 60, function () use ($identifier) {
+            $response = app('Wefact')->debtors()->show(['Identifier' => $identifier]);
 
-            $user = new \nickurt\HostFact\Authentication\User();
+            $user = new \Invato\Wefact\Authentication\User();
             $user->forceFill($response['debtor']);
 
             return $user;

@@ -1,10 +1,10 @@
 <?php
 
-use nickurt\HostFact\HostFact;
+use Invato\Wefact\Wefact;
 
-if (!function_exists('hostfact')) {
-    function hostfact()
+if (!function_exists('wefact')) {
+    function wefact()
     {
-        return app(HostFact::class);
+        return app(Wefact::class);
     }
 }
