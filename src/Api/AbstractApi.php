@@ -25,6 +25,8 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function post($parameters)
     {
+        $parameters['limit'] = isset($parameters['limit']) ? $parameters['limit'] : 99999;
+
         return $this->client->getHttpClient()->post(array_merge([
             'api_key' => $this->client->getHttpClient()->getOptions()['key']
         ], $parameters));
