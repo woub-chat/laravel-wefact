@@ -38,10 +38,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function register()
     {
         $this->app->singleton('Invato\Wefact\Wefact', function ($app) {
-            $hostFact = new Wefact($app);
-            $hostFact->panel($hostFact->getDefaultPanel());
+            $wefact = new Wefact($app);
+            $wefact->panel($wefact->getDefaultPanel());
 
-            return $hostFact;
+            return $wefact;
         });
 
         $this->app->alias('Invato\Wefact\Wefact', 'Wefact');
