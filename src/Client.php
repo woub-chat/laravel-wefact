@@ -16,6 +16,7 @@ class Client
         'invoices' => 'Invoices',
         'pricequotes' => 'PriceQuotes',
         'products' => 'Products',
+        'subscriptions' => 'Subscriptions'
     ];
 
     /** @var \Invato\Wefact\HttpClient */
