@@ -10,13 +10,16 @@ class Client
     protected $classes = [
         'attachments' => 'Attachments',
         'creditinvoices' => 'CreditInvoices',
+        'creditInvoices' => 'CreditInvoices',
         'creditors' => 'Creditors',
         'debtors' => 'Debtors',
         'groups' => 'Groups',
         'invoices' => 'Invoices',
         'pricequotes' => 'PriceQuotes',
+        'priceQuotes' => 'PriceQuotes',
         'products' => 'Products',
-        'subscriptions' => 'Subscriptions'
+        'subscriptions' => 'Subscriptions',
+        'settings' => 'Settings'
     ];
 
     /** @var \Invato\Wefact\HttpClient */
