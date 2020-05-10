@@ -61,7 +61,13 @@ class HttpClient implements HttpClientInterface
             ]
         );
 
-        return json_decode((string)$response->getBody(), true);
+        $result = json_decode((string)$response->getBody(), true);
+
+        if(isset($result['status']) && $result['status'] == 'success'){
+            return $result;
+        }
+
+        throw new \Exception(print_r($result, true));
     }
 
     /**
