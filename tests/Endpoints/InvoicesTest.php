@@ -1,6 +1,6 @@
 <?php
 
-namespace Invato\Wefact\Tests\Endpoints;
+namespace Bfg\Wefact\Tests\Endpoints;
 
 class InvoicesTest extends BaseEndpointTest
 {
@@ -26,22 +26,6 @@ class InvoicesTest extends BaseEndpointTest
         ]);
 
         $this->assertSame(['controller' => 'invoice', 'action' => 'add', 'status' => 'success', 'date' => '2019-05-20T12:00:00+02:00', 'invoice' => ['Identifier' => '6', 'InvoiceCode' => '[concept]0002', 'Debtor' => '1', 'DebtorCode' => 'DB0001', 'Status' => '0', 'SubStatus' => '', 'Date' => '2019-05-17', 'Term' => '14', 'PayBefore' => '2019-05-31', 'PaymentURL' => '', 'AmountExcl' => '165.00', 'AmountTax' => '34.65', 'AmountIncl' => '199.65', 'TaxRate' => '0', 'Compound' => 'no', 'AmountPaid' => '0.00', 'Discount' => '0', 'VatCalcMethod' => 'excl', 'IgnoreDiscount' => 'no', 'Coupon' => '', 'ReferenceNumber' => '', 'CompanyName' => 'Company X', 'TaxNumber' => 'NL123456789B01', 'Sex' => 'm', 'Initials' => 'John', 'SurName' => 'Jackson', 'Address' => 'Keizersgracht 100', 'ZipCode' => '1015 AA', 'City' => 'Amsterdam', 'Country' => 'NL', 'EmailAddress' => 'info@company.com', 'InvoiceMethod' => '0', 'Template' => '1', 'ScheduledAt' => '', 'SentDate' => '', 'Sent' => '0', 'Reminders' => '0', 'ReminderDate' => '', 'Summations' => '0', 'SummationDate' => '', 'Authorisation' => 'no', 'PaymentMethod' => '', 'PayDate' => '', 'TransactionID' => '', 'Description' => '', 'Comment' => '', 'InvoiceLines' => [0 => ['Identifier' => '113', 'Date' => '2019-05-17', 'Number' => '1', 'NumberSuffix' => '', 'ProductCode' => '', 'Description' => 'Setupfee', 'PriceExcl' => '150', 'DiscountPercentage' => '0', 'DiscountPercentageType' => 'line', 'TaxPercentage' => '21', 'PeriodicID' => '0', 'Periods' => '1', 'Periodic' => '', 'StartPeriod' => '', 'EndPeriod' => '', 'ProductType' => '', 'Reference' => '0', 'NoDiscountAmountIncl' => '181.5', 'NoDiscountAmountExcl' => '150', 'DiscountAmountIncl' => '0', 'DiscountAmountExcl' => '0'], 1 => ['Identifier' => '114', 'Date' => '2019-05-17', 'Number' => '1', 'NumberSuffix' => '', 'ProductCode' => 'P003', 'Description' => 'Domain example.com', 'PriceExcl' => '15', 'DiscountPercentage' => '0', 'DiscountPercentageType' => 'line', 'TaxPercentage' => '21', 'PeriodicID' => '12', 'Periods' => '1', 'Periodic' => 'j', 'StartPeriod' => '2019-05-17', 'EndPeriod' => '2020-05-17', 'ProductType' => '', 'Reference' => '0', 'NoDiscountAmountIncl' => '18.15', 'NoDiscountAmountExcl' => '15', 'DiscountAmountIncl' => '0', 'DiscountAmountExcl' => '0']], 'Created' => '2019-05-20 12:00:00', 'Modified' => '2019-05-20 12:00:00', 'Translations' => ['Status' => 'Concept', 'Country' => 'Nederland', 'InvoiceMethod' => 'Per e-mail', 'Template' => 'Factuur', 'PaymentMethod' => ''], 'AmountDiscount' => '0', 'AmountDiscountIncl' => '0', 'UsedTaxrates' => ['0.21' => ['AmountExcl' => '165', 'AmountTax' => '34.65', 'AmountIncl' => '199.65']]]], $invoice);
-    }
-
-    /** @test */
-    public function it_can_add_a_new_invoice_line_to_an_existing_invoice()
-    {
-        $this->markTestIncomplete('Missing ApiClient Response ..');
-
-        $invoice = $this->hostFact->invoices()->line()->add([
-            'InvoiceCode' => 'F0001',
-            'InvoiceLines' => [
-                [
-                    'Description' => 'Additional fee',
-                    'PriceExcl' => 50
-                ]
-            ]
-        ]);
     }
 
     /** @test */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Invato\Wefact\HttpClient;
+namespace Bfg\Wefact\HttpClient;
 
 class HttpClient implements HttpClientInterface
 {

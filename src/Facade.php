@@ -1,9 +1,9 @@
 <?php
 
-namespace Invato\Wefact;
+namespace Bfg\Wefact;
 
 /**
- * @method static \Invato\Wefact\Api\Debtors debtors()
+ * @method static \Bfg\Wefact\Api\Debtors debtors()
  */
 class Facade extends \Illuminate\Support\Facades\Facade
 {

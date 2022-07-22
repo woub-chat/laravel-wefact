@@ -1,6 +1,6 @@
 <?php
 
-use Invato\Wefact\Wefact;
+use Bfg\Wefact\Wefact;
 
 if (!function_exists('wefact')) {
     function wefact()

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="laravel-wefact">
+            <directory>./tests/</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <const name="APP_ENV" value="testing"/>
+    </php>
+</phpunit>

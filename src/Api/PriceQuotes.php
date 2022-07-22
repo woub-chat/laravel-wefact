@@ -1,6 +1,6 @@
 <?php
 
-namespace Invato\Wefact\Api;
+namespace Bfg\Wefact\Api;
 
 class PriceQuotes extends AbstractApi
 {
@@ -34,7 +34,7 @@ class PriceQuotes extends AbstractApi
      */
     public function attachments()
     {
-        return new \Invato\Wefact\Api\Attachments($this->client);
+        return new \Bfg\Wefact\Api\Attachments($this->client);
     }
 
     /**
@@ -88,7 +88,7 @@ class PriceQuotes extends AbstractApi
      */
     public function line()
     {
-        return new \Invato\Wefact\Api\PriceQuotesLine($this->client);
+        return new \Bfg\Wefact\Api\PriceQuotesLine($this->client);
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Invato\Wefact;
+namespace Bfg\Wefact;
 
 interface ClientInterface
 {

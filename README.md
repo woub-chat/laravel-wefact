@@ -1,8 +1,4 @@
 ## Laravel Wefact
-[![Latest Stable Version](https://poser.pugx.org/Invato/laravel-wefact/v/stable?format=flat-square)](https://packagist.org/packages/Invato/laravel-wefact)
-[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/Invato/laravel-wefact/master.svg?style=flat-square)](https://travis-ci.org/Invato/laravel-wefact)
-[![Total Downloads](https://img.shields.io/packagist/dt/Invato/laravel-wefact.svg?style=flat-square)](https://packagist.org/packages/Invato/laravel-wefact)
 
 Wefact is an easy-to-use billing system. This repository on this repository nickurt/laravel-hostfact
 ### Table of contents
@@ -12,11 +8,11 @@ Wefact is an easy-to-use billing system. This repository on this repository nick
 ### Installation
 Install this package with composer:
 ```
-composer require Invato/laravel-wefact
+composer require bfg/laravel-wefact
 ```
 Copy the config files for the Wefact-plugin
 ```
-php artisan vendor:publish --provider="Invato\Wefact\ServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Bfg\Wefact\ServiceProvider" --tag="config"
 ```
 Add the Wefact credentials to your `.env` file
 ```

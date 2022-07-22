@@ -1,6 +1,6 @@
 <?php
 
-namespace Invato\Wefact\Api;
+namespace Bfg\Wefact\Api;
 
 class Subscriptions extends AbstractApi
 {
@@ -23,7 +23,7 @@ class Subscriptions extends AbstractApi
      */
     public function attachments()
     {
-        return new \Invato\Wefact\Api\Attachments($this->client);
+        return new \Bfg\Wefact\Api\Attachments($this->client);
     }
 
     /**

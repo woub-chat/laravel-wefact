@@ -1,6 +1,6 @@
 <?php
 
-namespace Invato\Wefact\Tests\Endpoints;
+namespace Bfg\Wefact\Tests\Endpoints;
 
 class PriceQuotesTest extends BaseEndpointTest
 {

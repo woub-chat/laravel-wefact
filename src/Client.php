@@ -1,8 +1,9 @@
 <?php
 
-namespace Invato\Wefact;
+namespace Bfg\Wefact;
 
-use Invato\Wefact\HttpClient\HttpClient;
+use Bfg\Wefact\HttpClient\HttpClient;
+use InvalidArgumentException;
 
 class Client
 {
@@ -22,7 +23,7 @@ class Client
         'settings' => 'Settings'
     ];
 
-    /** @var \Invato\Wefact\HttpClient */
+    /** @var \Bfg\Wefact\HttpClient */
     protected $httpClient;
 
     /** @var array */
@@ -49,10 +50,10 @@ class Client
     public function api($name)
     {
         if (!isset($this->classes[$name])) {
-            throw new \InvalidArgumentException(sprintf('Undefined method called:"%s"', $name));
+            throw new InvalidArgumentException(sprintf('Undefined method called:"%s"', $name));
         }
 
-        $class = '\\Invato\\Wefact\\Api\\' . $this->classes[$name];
+        $class = '\\Bfg\\Wefact\\Api\\' . $this->classes[$name];
 
         return new $class($this);
     }
@@ -66,24 +67,19 @@ class Client
             $this->httpClient = new HttpClient();
         }
 
-        $this->httpClient->setOptions($this->getOptions());
+        $this->httpClient->setOptions($this->options);
 
         return $this->httpClient;
     }
 
     /**
-     * @return array
-     */
-    public function getOptions()
-    {
-        return $this->options;
-    }
-
-    /**
      * @param $options
+     * @return Client
      */
-    public function setOptions($options)
+    public function setOptions($options): Client
     {
         $this->options = $options;
+
+        return $this;
     }
 }

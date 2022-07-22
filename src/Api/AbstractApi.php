@@ -1,17 +1,17 @@
 <?php
 
-namespace Invato\Wefact\Api;
+namespace Bfg\Wefact\Api;
 
-use Invato\Wefact\Client;
+use Bfg\Wefact\Client;
 
 abstract class AbstractApi implements ApiInterface
 {
-    /** @var \Invato\Wefact\Client */
+    /** @var \Bfg\Wefact\Client */
     public $client;
 
     /**
      * AbstractApi constructor.
-     * @param \Invato\Wefact\Client $client
+     * @param \Bfg\Wefact\Client $client
      */
     public function __construct(Client $client)
     {

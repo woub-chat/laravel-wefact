@@ -1,6 +1,6 @@
 <?php
 
-namespace Invato\Wefact\Api;
+namespace Bfg\Wefact\Api;
 
 interface ApiInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Invato\Wefact;
+namespace Bfg\Wefact;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -16,7 +16,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         ], 'config');
 
         \Auth::provider('wefact', function ($app, array $config) {
-            return new \Invato\Wefact\Providers\WefactProvider();
+            return new \Bfg\Wefact\Providers\WefactProvider();
         });
     }
 
@@ -27,7 +27,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function provides()
     {
-        return ['Invato\Wefact\Wefact', 'Wefact'];
+        return ['Bfg\Wefact\Wefact', 'Wefact'];
     }
 
     /**
@@ -37,13 +37,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('Invato\Wefact\Wefact', function ($app) {
-            $wefact = new Wefact($app);
-            $wefact->panel($wefact->getDefaultPanel());
-
-            return $wefact;
-        });
-
-        $this->app->alias('Invato\Wefact\Wefact', 'Wefact');
+        $this->app->alias('Bfg\Wefact\Wefact', 'Wefact');
     }
 }

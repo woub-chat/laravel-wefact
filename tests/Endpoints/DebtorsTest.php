@@ -1,6 +1,6 @@
 <?php
 
-namespace Invato\Wefact\Tests\Endpoints;
+namespace Bfg\Wefact\Tests\Endpoints;
 
 class DebtorsTest extends BaseEndpointTest
 {
@@ -54,17 +54,6 @@ class DebtorsTest extends BaseEndpointTest
     }
 
     /** @test */
-    public function it_can_check_login_of_an_existing_debtor()
-    {
-        $this->markTestIncomplete('Missing ApiClient Response ..');
-
-        $debtor = $this->hostFact->debtors()->checkLogin([
-            'Username' => 'DB0001',
-            'Password' => '3e5cd56E'
-        ]);
-    }
-
-    /** @test */
     public function it_can_delete_an_attachement_of_an_existing_debtor()
     {
         $this->mockApiClientResponse(
@@ -113,23 +102,6 @@ class DebtorsTest extends BaseEndpointTest
     }
 
     /** @test */
-    public function it_can_generate_pdf_of_an_existing_debtor()
-    {
-        $this->mockApiClientResponse(
-            new \GuzzleHttp\Psr7\Response(200, [], '{"controller":"debtor","action":"generatepdf","status":"success","date":"2019-05-20T12:00:00+02:00","debtor":{"Filename":"Gegevens.webhostingpakket.pdf","Base64":"JVBERi0xLj...QKJSVFT0YK"}}')
-        );
-
-        $debtor = $this->hostFact->debtors()->generatePdf([
-            'Identifier' => 1,
-            'TemplateID' => 3,
-            'ServiceID' => 1,
-            'ServiceType' => 'hosting'
-        ]);
-
-        $this->assertSame(['controller' => 'debtor', 'action' => 'generatepdf', 'status' => 'success', 'date' => '2019-05-20T12:00:00+02:00', 'debtor' => ['Filename' => 'Gegevens.webhostingpakket.pdf', 'Base64' => 'JVBERi0xLj...QKJSVFT0YK']], $debtor);
-    }
-
-    /** @test */
     public function it_can_get_all_the_debtors()
     {
         $this->mockApiClientResponse(
@@ -145,24 +117,6 @@ class DebtorsTest extends BaseEndpointTest
     }
 
     /** @test */
-    public function it_can_send_email_to_an_existing_debtor()
-    {
-        $this->mockApiClientResponse(
-            new \GuzzleHttp\Psr7\Response(200, [], '{"controller":"debtor","action":"sendemail","status":"success","date":"2019-05-20T12:00:00+02:00","debtors":["E-mail met onderwerp \'Welkom bij Wefact\' is succesvol verzonden naar info@company.com"]}')
-        );
-
-        $debtor = $this->hostFact->debtors()->sendEmail([
-            'Identifier' => 1,
-            'Message' => 'test',
-            //'Recipient' => '',
-            'TemplateID' => 5,
-            //'References' => array('invoice' => 1, 'domain' => 1),
-        ]);
-
-        $this->assertSame(['controller' => 'debtor', 'action' => 'sendemail', 'status' => 'success', 'date' => '2019-05-20T12:00:00+02:00', 'debtors' => [0 => 'E-mail met onderwerp \'Welkom bij Wefact\' is succesvol verzonden naar info@company.com']], $debtor);
-    }
-
-    /** @test */
     public function it_can_show_the_debtor()
     {
         $this->mockApiClientResponse(
@@ -174,22 +128,5 @@ class DebtorsTest extends BaseEndpointTest
         ]);
 
         $this->assertSame(['controller' => 'debtor', 'action' => 'show', 'status' => 'success', 'date' => '2019-05-20T12:00:00+02:00', 'debtor' => ['Identifier' => '1', 'DebtorCode' => 'DB0001', 'CompanyName' => 'Company X', 'CompanyNumber' => '123456789', 'LegalForm' => 'ANDERS', 'TaxNumber' => 'NL123456789B01', 'Sex' => 'm', 'Initials' => 'John', 'SurName' => 'Jackson', 'Address' => 'Keizersgracht 100', 'ZipCode' => '1015 AA', 'City' => 'Amsterdam', 'Country' => 'NL', 'EmailAddress' => 'info@company.com', 'PhoneNumber' => '010 - 22 33 44', 'MobileNumber' => '', 'FaxNumber' => '', 'Website' => '', 'Comment' => '', 'InvoiceMethod' => '0', 'InvoiceCompanyName' => '', 'InvoiceSex' => 'm', 'InvoiceInitials' => '', 'InvoiceSurName' => '', 'InvoiceAddress' => '', 'InvoiceZipCode' => '', 'InvoiceCity' => '', 'InvoiceCountry' => 'NL', 'InvoiceEmailAddress' => '', 'InvoiceAuthorisation' => 'no', 'MandateID' => '', 'InvoiceDataForPriceQuote' => 'no', 'AccountNumber' => 'NL59RABO0123123123', 'AccountBIC' => 'RABONL2U', 'AccountName' => 'Company X', 'AccountBank' => 'Rabobank', 'AccountCity' => 'Amsterdam', 'ActiveLogin' => 'yes', 'Username' => 'DB0001', 'SecurePassword' => '', 'Mailing' => 'yes', 'Taxable' => 'auto', 'PeriodicInvoiceDays' => '-1', 'InvoiceTemplate' => '0', 'PriceQuoteTemplate' => '0', 'ReminderTemplate' => '0', 'SecondReminderTemplate' => '-1', 'SummationTemplate' => '0', 'PaymentMail' => '-1', 'PaymentMailTemplate' => '0', 'InvoiceCollect' => '-1', 'DefaultLanguage' => '', 'ClientareaProfile' => '0', 'Groups' => [4 => ['id' => '4', 'GroupName' => 'Hosting clients']], 'Created' => '2019-05-20 12:00:00', 'Modified' => '2019-05-20 12:00:00', 'Translations' => ['LegalForm' => 'Anders of onbekend', 'Country' => 'Nederland', 'InvoiceMethod' => 'Per e-mail', 'InvoiceCountry' => 'Nederland', 'Taxable' => 'Automatisch', 'DefaultLanguage' => '']]], $debtor);
-    }
-
-    /** @test */
-    public function it_can_update_login_credentials_of_an_existing_debtor()
-    {
-        $this->mockApiClientResponse(
-            new \GuzzleHttp\Psr7\Response(200, [], '{"controller":"debtor","action":"updatelogincredentials","status":"success","date":"2019-05-20T12:00:00+02:00","success":["De e-mail met inloggegevens is verzonden naar: info@company.com","De inloggegevens voor debiteur \'DB0001\' zijn gewijzigd"],"debtor":{"Identifier":"1","DebtorCode":"DB0001","CompanyName":"Company X","CompanyNumber":"123456789","LegalForm":"ANDERS","TaxNumber":"NL123456789B01","Sex":"m","Initials":"John","SurName":"Jackson","Address":"Keizersgracht 100","ZipCode":"1015 AA","City":"Amsterdam","Country":"NL","EmailAddress":"info@company.com","PhoneNumber":"010 - 22 33 44","MobileNumber":"","FaxNumber":"","Website":"","Comment":"","InvoiceMethod":"0","InvoiceCompanyName":"","InvoiceSex":"m","InvoiceInitials":"","InvoiceSurName":"","InvoiceAddress":"","InvoiceZipCode":"","InvoiceCity":"","InvoiceCountry":"NL","InvoiceEmailAddress":"","InvoiceAuthorisation":"no","MandateID":"","InvoiceDataForPriceQuote":"no","AccountNumber":"NL59RABO0123123123","AccountBIC":"RABONL2U","AccountName":"Company X","AccountBank":"Rabobank","AccountCity":"Amsterdam","ActiveLogin":"yes","Username":"DB0001","SecurePassword":"","Mailing":"yes","Taxable":"auto","PeriodicInvoiceDays":"-1","InvoiceTemplate":"0","PriceQuoteTemplate":"0","ReminderTemplate":"0","SecondReminderTemplate":"-1","SummationTemplate":"0","PaymentMail":"-1","PaymentMailTemplate":"0","InvoiceCollect":"-1","DefaultLanguage":"","ClientareaProfile":"0","Groups":{"4":{"id":"4","GroupName":"Hosting clients"}},"Created":"2019-05-20 12:00:00","Modified":"2019-05-20 12:00:00","Translations":{"LegalForm":"Anders of onbekend","Country":"Nederland","InvoiceMethod":"Per e-mail","InvoiceCountry":"Nederland","Taxable":"Automatisch","DefaultLanguage":""}}}')
-        );
-
-        $debtor = $this->hostFact->debtors()->updateLoginCredentials([
-            'Username' => 'DB0001',
-            'EmailAddress' => 'info@company.com',
-            'Password' => 'newpassword',
-            'SendPasswordForgotEmail' => 'yes',
-        ]);
-
-        $this->assertSame(['controller' => 'debtor', 'action' => 'updatelogincredentials', 'status' => 'success', 'date' => '2019-05-20T12:00:00+02:00', 'success' => [0 => 'De e-mail met inloggegevens is verzonden naar: info@company.com', 1 => 'De inloggegevens voor debiteur \'DB0001\' zijn gewijzigd'], 'debtor' => ['Identifier' => '1', 'DebtorCode' => 'DB0001', 'CompanyName' => 'Company X', 'CompanyNumber' => '123456789', 'LegalForm' => 'ANDERS', 'TaxNumber' => 'NL123456789B01', 'Sex' => 'm', 'Initials' => 'John', 'SurName' => 'Jackson', 'Address' => 'Keizersgracht 100', 'ZipCode' => '1015 AA', 'City' => 'Amsterdam', 'Country' => 'NL', 'EmailAddress' => 'info@company.com', 'PhoneNumber' => '010 - 22 33 44', 'MobileNumber' => '', 'FaxNumber' => '', 'Website' => '', 'Comment' => '', 'InvoiceMethod' => '0', 'InvoiceCompanyName' => '', 'InvoiceSex' => 'm', 'InvoiceInitials' => '', 'InvoiceSurName' => '', 'InvoiceAddress' => '', 'InvoiceZipCode' => '', 'InvoiceCity' => '', 'InvoiceCountry' => 'NL', 'InvoiceEmailAddress' => '', 'InvoiceAuthorisation' => 'no', 'MandateID' => '', 'InvoiceDataForPriceQuote' => 'no', 'AccountNumber' => 'NL59RABO0123123123', 'AccountBIC' => 'RABONL2U', 'AccountName' => 'Company X', 'AccountBank' => 'Rabobank', 'AccountCity' => 'Amsterdam', 'ActiveLogin' => 'yes', 'Username' => 'DB0001', 'SecurePassword' => '', 'Mailing' => 'yes', 'Taxable' => 'auto', 'PeriodicInvoiceDays' => '-1', 'InvoiceTemplate' => '0', 'PriceQuoteTemplate' => '0', 'ReminderTemplate' => '0', 'SecondReminderTemplate' => '-1', 'SummationTemplate' => '0', 'PaymentMail' => '-1', 'PaymentMailTemplate' => '0', 'InvoiceCollect' => '-1', 'DefaultLanguage' => '', 'ClientareaProfile' => '0', 'Groups' => [4 => ['id' => '4', 'GroupName' => 'Hosting clients']], 'Created' => '2019-05-20 12:00:00', 'Modified' => '2019-05-20 12:00:00', 'Translations' => ['LegalForm' => 'Anders of onbekend', 'Country' => 'Nederland', 'InvoiceMethod' => 'Per e-mail', 'InvoiceCountry' => 'Nederland', 'Taxable' => 'Automatisch', 'DefaultLanguage' => '']]], $debtor);
     }
 }
