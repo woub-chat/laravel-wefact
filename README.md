@@ -45,29 +45,7 @@ To use another panel than your default one, you can specify it with the panel-me
 // DebtorsController
 public function getIndex()
 {
-    $debtors = Wefact::panel('ppe')->debtors()->all([
-        'Sort' => 'DebtorCode',
-        'limit' => 20
-    ]);
-
-    //
-}
-```
-#### Multiple Panels [dependency injection]
-```php
-// Route
-Route::get('/wefact/{hostFact}/debtors', ['as' => 'wefact/debtors', 'uses' => 'DebtorsController@getIndex']);
-
-Route::bind('hostFact', function ($value, $route) {
-    app('Wefact')->panel($value);
-
-    return app('Wefact');
-});
-
-// DebtorsController
-public function getIndex(Wefact $hostFact)
-{
-    $debtors = $hostFact->debtors()->all([
+    $debtors = Wefact::client('key')->debtors()->all([
         'Sort' => 'DebtorCode',
         'limit' => 20
     ]);
