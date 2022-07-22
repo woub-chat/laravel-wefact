@@ -14,11 +14,6 @@ Copy the config files for the Wefact-plugin
 ```
 php artisan vendor:publish --provider="Bfg\Wefact\ServiceProvider" --tag="config"
 ```
-Add the Wefact credentials to your `.env` file
-```
-HOSTFACT_DEFAULT_URL=
-HOSTFACT_DEFAULT_KEY=
-```
 ### Usage
 ```php
 // DebtorsController
