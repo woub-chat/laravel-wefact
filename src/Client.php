@@ -16,16 +16,16 @@ use Bfg\Wefact\HttpClient\HttpClient;
 use InvalidArgumentException;
 
 /**
- * @method Attachments $attachments
- * @method CreditInvoices $creditInvoices
- * @method Creditors $creditors
- * @method Debtors $debtors
- * @method Groups $groups
- * @method Invoices $invoices
- * @method PriceQuotes $priceQuotes
- * @method Products $products
- * @method Subscriptions $subscriptions
- * @method Settings $settings
+ * @method Attachments attachments()
+ * @method CreditInvoices creditInvoices()
+ * @method Creditors creditors()
+ * @method Debtors debtors()
+ * @method Groups groups()
+ * @method Invoices invoices()
+ * @method PriceQuotes priceQuotes()
+ * @method Products products()
+ * @method Subscriptions subscriptions()
+ * @method Settings settings()
  */
 class Client
 {
