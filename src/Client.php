@@ -2,21 +2,41 @@
 
 namespace Bfg\Wefact;
 
+use Bfg\Wefact\Api\Attachments;
+use Bfg\Wefact\Api\CreditInvoices;
+use Bfg\Wefact\Api\Creditors;
+use Bfg\Wefact\Api\Debtors;
+use Bfg\Wefact\Api\Groups;
+use Bfg\Wefact\Api\Invoices;
+use Bfg\Wefact\Api\PriceQuotes;
+use Bfg\Wefact\Api\Products;
+use Bfg\Wefact\Api\Settings;
+use Bfg\Wefact\Api\Subscriptions;
 use Bfg\Wefact\HttpClient\HttpClient;
 use InvalidArgumentException;
 
+/**
+ * @method Attachments $attachments
+ * @method CreditInvoices $creditInvoices
+ * @method Creditors $creditors
+ * @method Debtors $debtors
+ * @method Groups $groups
+ * @method Invoices $invoices
+ * @method PriceQuotes $priceQuotes
+ * @method Products $products
+ * @method Subscriptions $subscriptions
+ * @method Settings $settings
+ */
 class Client
 {
     /** @var array */
     protected $classes = [
         'attachments' => 'Attachments',
-        'creditinvoices' => 'CreditInvoices',
         'creditInvoices' => 'CreditInvoices',
         'creditors' => 'Creditors',
         'debtors' => 'Debtors',
         'groups' => 'Groups',
         'invoices' => 'Invoices',
-        'pricequotes' => 'PriceQuotes',
         'priceQuotes' => 'PriceQuotes',
         'products' => 'Products',
         'subscriptions' => 'Subscriptions',
