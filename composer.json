@@ -1,6 +1,6 @@
 {
     "name": "bfg/laravel-wefact",
-    "description": "Wefact for Laravel 5.8-9.x",
+    "description": "Wefact for Laravel 5.8-10.x",
     "keywords": ["wefact", "laravel"],
     "license": "MIT",
     "require": {
